@@ -21,10 +21,10 @@ const MyProfile = () => {
       setPosts(data);
     }
 
-    if (session?.user?.id) {
+    if (session?.user?.id && posts.length === 0) {
       fetchPosts();
     }
-  }, []);
+  });
 
   const handleEdit = (post) => {
     router.push(`/update-prompt?id=${post._id}`)
